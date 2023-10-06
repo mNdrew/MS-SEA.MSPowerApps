@@ -97,11 +97,9 @@
                 AccessibleLabel: =Self.Tooltip
                 Height: =72
                 Icon: =Icon.Publish
-                OnSelect: |
+                OnSelect: |-
                     =Navigate('Upload Attendance', ScreenTransition.Fade, 
-                        { nameVal: ParseJSON(ThisItem.Value).name , emailVal: ParseJSON(ThisItem.Value).email, studIDVal: ParseJSON(ThisItem.Value).studentID });
-                        ThisItem.Value = ""
-                        
+                        { nameVal: ParseJSON(ThisItem.Value).name , emailVal: ParseJSON(ThisItem.Value).email, studIDVal: ParseJSON(ThisItem.Value).studentID })
                 PaddingBottom: =16
                 PaddingLeft: =16
                 PaddingRight: =16

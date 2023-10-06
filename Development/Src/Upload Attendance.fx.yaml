@@ -1,8 +1,7 @@
 "'Upload Attendance' As screen":
     OnHidden: =Reset('txtIn-Email');Reset('txtIn-Name');Reset('txtIn-StudID')
-    OnVisible: |+
-        =UpdateContext({var_name: nameVal}); UpdateContext({var_studID: studIDVal});UpdateContext({var_email: emailVal});
-        
+    OnVisible: |-
+        =UpdateContext({var_name: nameVal}); UpdateContext({var_studID: studIDVal});UpdateContext({var_email: emailVal})
 
     Rectangle1 As rectangle:
         Fill: =RGBA(237, 237, 237, 1)
@@ -18,8 +17,8 @@
         OnSelect: |-
             =If(
                 Or(IsBlank('txtIn-Name'),IsBlank('txtIn-Email'),IsBlank('txtIn-StudID')),
-                Notify("Incomplete Information"),
-                Flow_PAppsToExcel.Run('txtIn-Name'.Text,'txtIn-Email'.Text,Value('txtIn-StudID'.Text),Concatenate("Development-",App.TestCaseId));
+                Notify("Incomplete Information",NotificationType.Error),
+                Flow_PAppsToExcel.Run('txtIn-Name'.Text,'txtIn-Email'.Text,Value('txtIn-StudID'.Text),Concatenate("Development"));
                     If('chckBox-Multiple',
                         Reset('txtIn-Name');Reset('txtIn-Email');Reset('txtIn-StudID'),
                         Reset('txtIn-Name');Reset('txtIn-Email');Reset('txtIn-StudID');Navigate('QR Code Scanner'))

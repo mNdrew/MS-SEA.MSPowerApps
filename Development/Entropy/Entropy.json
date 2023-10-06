@@ -97,7 +97,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "10/06/2023 04:18:19",
+  "HeaderLastSavedDateTimeUTC": "10/06/2023 04:40:34",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "9a234659-3607-4201-bbee-4b66503a2e89": "\"/providers/microsoft.powerapps/apis/shared_excelonlinebusiness/connections/6bd317b261bf40ac93547cee5c2d9637\"",
@@ -626,7 +626,7 @@
     "AnalysisLoadTime": 0.3290196,
     "ControlCount": {
       "0e4432db420a43128b8d1d94b3e90685": 4,
-      "BarcodeReader": 1,
+      "BarcodeReader": 2,
       "button": 20,
       "checkbox": 1,
       "gallery": 1,
