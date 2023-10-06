@@ -44,7 +44,7 @@
         "Name": "background",
         "Parent": "Header with Back",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 58,
+        "PublishOrderIndex": 75,
         "Rules": [
           {
             "Category": "Design",
@@ -238,7 +238,7 @@
         "Name": "label-screen",
         "Parent": "Header with Back",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 59,
+        "PublishOrderIndex": 76,
         "Rules": [
           {
             "Category": "Data",
@@ -554,7 +554,7 @@
         "Name": "icon-back",
         "Parent": "Header with Back",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 60,
+        "PublishOrderIndex": 77,
         "Rules": [
           {
             "Category": "Design",
@@ -794,7 +794,7 @@
         "Name": "Icon2",
         "Parent": "Header with Back",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 61,
+        "PublishOrderIndex": 78,
         "Rules": [
           {
             "Category": "Design",
@@ -984,7 +984,7 @@
         "Name": "Group1",
         "Parent": "Header with Back",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 62,
+        "PublishOrderIndex": 79,
         "Rules": [
           {
             "Category": "Design",

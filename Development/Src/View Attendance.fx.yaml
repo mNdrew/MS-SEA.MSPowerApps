@@ -1,145 +1,58 @@
-"'Upload Attendance' As screen":
-    OnHidden: =Reset('txtIn-Email');Reset('txtIn-Name');Reset('txtIn-StudID')
-    OnVisible: |+
-        =UpdateContext({var_name: nameVal}); UpdateContext({var_studID: studIDVal});UpdateContext({var_email: emailVal});
-        
+"'View Attendance' As screen":
 
-    Rectangle1 As rectangle:
-        Fill: =RGBA(237, 237, 237, 1)
-        Height: =518
-        Width: =580
-        X: =30
-        Y: =110
+    DataTable1 As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        HeadingSize: =21
+        Height: =969
+        Items: =AttendanceTable
+        Size: =21
+        Width: =640
+        X: =0
+        Y: =78
         ZIndex: =1
 
-    "'btn-UploadAttendance' As button":
-        Fill: =RGBA(54, 176, 75, 1)
-        Height: =80
-        OnSelect: |-
-            =If(
-                Or(IsBlank('txtIn-Name'),IsBlank('txtIn-Email'),IsBlank('txtIn-StudID')),
-                Notify("Incomplete Information"),
-                Flow_PAppsToExcel.Run('txtIn-Name'.Text,'txtIn-Email'.Text,Value('txtIn-StudID'.Text),Concatenate("Development-",App.TestCaseId));
-                    If('chckBox-Multiple',
-                        Reset('txtIn-Name');Reset('txtIn-Email');Reset('txtIn-StudID'),
-                        Reset('txtIn-Name');Reset('txtIn-Email');Reset('txtIn-StudID');Navigate('QR Code Scanner'))
-            )
-        Size: =20
-        Text: ="Upload Attendance"
-        Width: =580
-        X: =30
-        Y: =941
+        "'Student Number_Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Student Number"
+            FieldName: ="Student Number"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.'Student Number'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        Timestamp_Column2 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Timestamp"
+            FieldName: ="Timestamp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.Timestamp
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+    "'Header with Back_2' As 'Header with Back'":
+        Height: =100
         ZIndex: =2
 
-    Group5 As group:
-        Height: =5
-        Width: =5
-        X: =60
-        Y: =60
-        ZIndex: =8
-
-        "'txtIn-Name' As text":
-            Default: =IfError(var_name,Concatenate("Name Value"),var_name)
-            Height: =70
-            Size: =21
-            Width: =545
-            X: =48
-            Y: =237
-            ZIndex: =3
-
-        "'txtIn-StudID' As text":
-            Default: =IfError(var_studID,Concatenate("Student ID Value"),var_studID)
-            Height: =70
-            Size: =21
-            Width: =545
-            X: =48
-            Y: =362
-            ZIndex: =4
-
-        "'txtIn-Email' As text":
-            Default: =IfError(var_email,Concatenate("Email Value"),var_email)
-            Height: =70
-            Size: =21
-            Width: =545
-            X: =48
-            Y: =489
-            ZIndex: =5
-
-        Label2 As label:
-            FontWeight: =FontWeight.Semibold
-            Height: =45
-            Size: =18
-            Text: ="Student Name"
-            Width: =545
-            X: =48
-            Y: =192
-            ZIndex: =6
-
-        Label2_1 As label:
-            FontWeight: =FontWeight.Semibold
-            Height: =45
-            Size: =18
-            Text: ="Student Number"
-            Width: =545
-            X: =48
-            Y: =318
-            ZIndex: =7
-
-        Label2_2 As label:
-            FontWeight: =FontWeight.Semibold
-            Height: =45
-            Size: =18
-            Text: ="Email"
-            Width: =545
-            X: =48
-            Y: =444
-            ZIndex: =8
-
-    "'Header with Back_1' As 'Header with Back'":
-        Height: =100
-        ZIndex: =9
-
-    Label3 As label:
-        Align: =Align.Center
-        FontWeight: =FontWeight.Lighter
-        Height: =48
-        Size: =14
-        Text: ="Please make sure to verify the information in the text fields above. "
-        Width: =580
-        X: =30
-        Y: =569
-        ZIndex: =10
-
-    Label2_3 As label:
-        Align: =Align.Center
-        FontWeight: =FontWeight.Bold
-        Height: =45
-        Size: =24
-        Text: ="QR Code Information"
-        Width: =545
-        X: =48
-        Y: =137
-        ZIndex: =23
-
-    "'chckBox-Multiple' As checkbox":
-        CheckboxSize: =45
-        FontWeight: =FontWeight.Semibold
-        Height: =75
-        Size: =16
-        Text: ="Uploading Multiple"
-        Width: =258
-        X: =352
-        Y: =614
-        ZIndex: =24
-
-    Group7_1 As group:
+    Group7_2 As group:
         Height: =5
         Width: =5
         X: =40
         Y: =40
-        ZIndex: =37
+        ZIndex: =15
 
-        TextCanvas1_4 As Text:
+        TextCanvas1_8 As Text:
             Align: ='TextCanvas.Align'.Center
             DisplayMode: =DisplayMode.Edit
             Height: =32
@@ -147,9 +60,9 @@
             Width: =96
             X: =30
             Y: =1104
-            ZIndex: =25
+            ZIndex: =3
 
-        TextCanvas1_5 As Text:
+        TextCanvas1_9 As Text:
             Align: ='TextCanvas.Align'.Center
             DisplayMode: =DisplayMode.Edit
             Height: =32
@@ -157,9 +70,9 @@
             Width: =96
             X: =192
             Y: =1104
-            ZIndex: =26
+            ZIndex: =4
 
-        TextCanvas1_6 As Text:
+        TextCanvas1_10 As Text:
             Align: ='TextCanvas.Align'.Center
             DisplayMode: =DisplayMode.Edit
             Height: =32
@@ -167,9 +80,9 @@
             Width: =96
             X: =351
             Y: =1104
-            ZIndex: =27
+            ZIndex: =5
 
-        TextCanvas1_7 As Text:
+        TextCanvas1_11 As Text:
             Align: ='TextCanvas.Align'.Center
             DisplayMode: =DisplayMode.Edit
             Height: =32
@@ -177,45 +90,45 @@
             Width: =128
             X: =496
             Y: =1104
-            ZIndex: =28
+            ZIndex: =6
 
-        Icon4_8 As icon.Home:
+        Icon4_12 As icon.Home:
             Color: =RGBA(51, 51, 51, 1)
             Height: =37
             Icon: =Icon.Home
             Width: =37
             X: =60
             Y: =1065
-            ZIndex: =29
+            ZIndex: =7
 
-        Icon4_9 As icon.Home:
+        Icon4_13 As icon.Home:
             Color: =RGBA(51, 51, 51, 1)
             Height: =37
             Icon: =Icon.CameraAperture
             Width: =37
             X: =222
             Y: =1065
-            ZIndex: =30
+            ZIndex: =8
 
-        Icon4_11 As icon.Home:
+        Icon4_15 As icon.Home:
             Color: =RGBA(51, 51, 51, 1)
             Height: =37
             Icon: =Icon.Draw
             Width: =37
             X: =542
             Y: =1065
-            ZIndex: =31
+            ZIndex: =9
 
-        Icon4_10 As icon.Home:
+        Icon4_14 As icon.Home:
             Color: =RGBA(51, 51, 51, 1)
             Height: =37
             Icon: =Icon.Document
             Width: =37
             X: =381
             Y: =1065
-            ZIndex: =32
+            ZIndex: =10
 
-        "'nav-view_2' As button":
+        "'nav-view_3' As button":
             AutoDisableOnSelect: =false
             BorderThickness: =0
             Color: =Color.Transparent
@@ -240,9 +153,9 @@
             Width: =159
             X: =320
             Y: =1048
-            ZIndex: =33
+            ZIndex: =11
 
-        "'nav-edit_2' As button":
+        "'nav-edit_3' As button":
             AutoDisableOnSelect: =false
             BorderThickness: =0
             Color: =Color.Transparent
@@ -267,9 +180,9 @@
             Width: =159
             X: =481
             Y: =1048
-            ZIndex: =34
+            ZIndex: =12
 
-        "'nav-home_2' As button":
+        "'nav-home_3' As button":
             AutoDisableOnSelect: =false
             BorderThickness: =0
             Color: =Color.Transparent
@@ -293,9 +206,9 @@
             Text: ="Home"
             Width: =159
             Y: =1048
-            ZIndex: =35
+            ZIndex: =13
 
-        "'nav-scan_2' As button":
+        "'nav-scan_3' As button":
             AutoDisableOnSelect: =false
             BorderThickness: =0
             Color: =Color.Transparent
@@ -320,5 +233,5 @@
             Width: =159
             X: =160
             Y: =1048
-            ZIndex: =36
+            ZIndex: =14
 

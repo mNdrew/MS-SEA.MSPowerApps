@@ -103,7 +103,7 @@
     "DefaultConnectedDataSourceMaxGetRowsCount": 500,
     "DocumentAppType": "Phone",
     "DocumentLayoutHeight": 1136,
-    "DocumentLayoutLockOrientation": false,
+    "DocumentLayoutLockOrientation": true,
     "DocumentLayoutMaintainAspectRatio": true,
     "DocumentLayoutOrientation": "portrait",
     "DocumentLayoutScaleToFit": true,
@@ -118,7 +118,7 @@
     "Name": "QRToTable",
     "OriginatingVersion": "1.334",
     "ParserErrorCount": 0,
-    "ShowStatusBar": false
+    "ShowStatusBar": true
   },
   "PublishInfo": {
     "AppName": "QRToTable",
@@ -134,6 +134,7 @@
   "ScreenOrder": [
     "Home",
     "QR Code Scanner",
-    "Upload Attendance"
+    "Upload Attendance",
+    "View Attendance"
   ]
 }

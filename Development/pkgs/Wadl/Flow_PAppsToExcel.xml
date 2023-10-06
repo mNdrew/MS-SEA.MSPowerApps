@@ -5,10 +5,12 @@
       <string name="ManualTriggerInput_Addarowintoatable_FullName_def" />
       <string name="ManualTriggerInput_Addarowintoatable_Email_def" />
       <string name="ManualTriggerInput_Addarowintoatable_StudentNumber_def" />
+      <string name="ManualTriggerInput_Addarowintoatable___PowerAppsId___def" />
       <object name="ManualTriggerInput">
         <property name="Addarowintoatable_FullName" type="string" />
         <property name="Addarowintoatable_Email" type="string" />
         <property name="Addarowintoatable_StudentNumber" type="string" />
+        <property name="Addarowintoatable___PowerAppsId__" type="string" />
       </object>
     </jsonTypes>
   </grammars>
@@ -25,6 +27,7 @@
             <param style="plain" name="Addarowintoatable_FullName" path="/Addarowintoatable_FullName" type="xs:string" required="true" />
             <param style="plain" name="Addarowintoatable_Email" path="/Addarowintoatable_Email" type="xs:string" required="true" />
             <param style="plain" name="Addarowintoatable_StudentNumber" path="/Addarowintoatable_StudentNumber" type="xs:string" required="true" />
+            <param style="plain" name="Addarowintoatable___PowerAppsId__" path="/Addarowintoatable___PowerAppsId__" type="xs:string" required="true" />
           </representation>
         </request>
       </method>
