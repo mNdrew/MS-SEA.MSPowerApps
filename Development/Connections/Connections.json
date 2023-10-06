@@ -1,0 +1,96 @@
+{
+  "101896f6-13ef-45ef-af00-0737ad73fdd0": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "9a234659-3607-4201-bbee-4b66503a2e89": {
+          "value": "shared_excelonlinebusiness"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "50437678-5a31-47c5-b205-132d63c420ae"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_excelonlinebusiness": {
+          "value": "9a234659-3607-4201-bbee-4b66503a2e89"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "50437678-5a31-47c5-b205-132d63c420ae"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "Flow_PAppsToExcel"
+    ],
+    "dependencies": {
+      "shared_excelonlinebusiness": "9a234659-3607-4201-bbee-4b66503a2e89"
+    },
+    "dependents": [],
+    "id": "101896f6-13ef-45ef-af00-0737ad73fdd0"
+  },
+  "7915cded-5b3c-44c4-bd8b-f4ffc2c1e719": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "a119c663-57df-4acc-9e59-723af6e0be40"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "a119c663-57df-4acc-9e59-723af6e0be40"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "PowerApp->ParseJSON"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "7915cded-5b3c-44c4-bd8b-f4ffc2c1e719"
+  },
+  "9a234659-3607-4201-bbee-4b66503a2e89": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Excel Online (Business)",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1658/1.0.1658.3452/excelonlinebusiness/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_excelonlinebusiness",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "me,b%2521qHonwSsE9EWGTEBL92xIKdtroF6nlFhCjqwQ064W2y4hJha2huQiTJ4jSUI62p-S,01H6HLX6SAM7GNSX4CSJDK3G42JSNDN5OM": {
+        "dataSources": {
+          "AttendanceTable": {
+            "tableName": "{45EFBF64-6D85-4467-B254-1822D63F328F}"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "AttendanceTable"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "101896f6-13ef-45ef-af00-0737ad73fdd0"
+    ],
+    "id": "9a234659-3607-4201-bbee-4b66503a2e89"
+  }
+}

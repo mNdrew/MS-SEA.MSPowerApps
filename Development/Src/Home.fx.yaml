@@ -1,0 +1,82 @@
+Home As screen:
+    Fill: =RGBA(0, 13, 75, 1)
+
+    Button2 As button:
+        Color: =RGBA(0, 18, 107, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =266
+        OnSelect: =Navigate('QR Code Scanner')
+        PaddingBottom: =20
+        Size: =24
+        Text: ="Scan QR"
+        VerticalAlign: =VerticalAlign.Bottom
+        Width: =280
+        X: =33
+        Y: =648
+        ZIndex: =1
+
+    Button2_1 As button:
+        DisplayMode: =DisplayMode.Disabled
+        Height: =266
+        PaddingBottom: =20
+        Size: =24
+        Text: ="Check List"
+        VerticalAlign: =VerticalAlign.Bottom
+        Width: =280
+        X: =328
+        Y: =648
+        ZIndex: =2
+
+    Icon1 As icon.Scan:
+        Height: =129
+        Icon: =Icon.CameraAperture
+        OnSelect: =Navigate('QR Code Scanner')
+        Width: =127
+        X: =110
+        Y: =696
+        ZIndex: =3
+
+    HtmlText1 As htmlViewer:
+        AutoHeight: =true
+        Height: =516
+        HtmlText: |-
+            ="<h1 style='color: white'>Monitoring System: Student Event Activity</h1>
+            <sup style='color: white'>A Component for the Capstone output of Cayetano, Velasco, Velasquez</sup>"
+        Width: =575
+        X: =33
+        Y: =75
+        ZIndex: =4
+
+    Icon1_1 As icon.Scan:
+        Color: =RGBA(202, 202, 202, 1)
+        Height: =129
+        Icon: =Icon.Database
+        Width: =127
+        X: =405
+        Y: =696
+        ZIndex: =5
+
+    Button2_2 As button:
+        Color: =RGBA(0, 18, 107, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =86
+        OnSelect: =Navigate('Upload Attendance')
+        Size: =24
+        Text: ="Manually Upload"
+        Width: =575
+        X: =33
+        Y: =939
+        ZIndex: =6
+
+    Label4 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 0.54)
+        Fill: =RGBA(255, 255, 255, 0)
+        Height: =28
+        Size: =10
+        Text: =Now()
+        Width: =560
+        X: =40
+        Y: =1091
+        ZIndex: =7
+
