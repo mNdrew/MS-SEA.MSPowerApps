@@ -1,0 +1,323 @@
+"'QR Code Scanner' As screen":
+    OnVisible: =
+
+    "QRReader1 As 'Barcode Reader'":
+        BarcodeType: ='BarcodeReader.BarcodeType'.QRCode
+        BorderFillColor: =RGBA(47, 81, 151, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledContentColor: =RGBA(166, 166, 166, 1)
+        DisabledFillColor: =RGBA(244, 244, 244, 1)
+        DisplayMode: =DisplayMode.Edit
+        FillColor: =RGBA(0, 18, 107, 1)
+        Height: =80
+        HoverBorderColor: =RGBA(88, 115, 171, 1)
+        HoverContentColor: =RGBA(255, 255, 255, 1)
+        HoverFillColor: =RGBA(47, 81, 151, 1)
+        OnScan: |
+            =UpdateContext({scannedValue: First(QRReader1.Barcodes).Value});
+        PressedBorderColor: =RGBA(56, 96, 178, 1)
+        PressedContentColor: =RGBA(56, 96, 178, 1)
+        PressedFillColor: =RGBA(255, 255, 255, 1)
+        ScanningMode: ='BarcodeReader.ScanningMode'.SelectToScan
+        Text: ="Scan QR Code"
+        TextColor: =RGBA(255, 255, 255, 1)
+        Width: =580
+        X: =30
+        Y: =941
+        ZIndex: =13
+
+    "Header_2 As 'Header with Back'":
+        Height: =103
+        ZIndex: =16
+
+    Group4 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =16
+
+        "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+            DelayItemLoading: =true
+            Height: =424
+            Items: =QRReader1.Barcodes
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplatePadding: =0
+            TemplateSize: =115
+            Width: =598
+            X: =23
+            Y: =184
+            ZIndex: =14
+
+            Image2 As image:
+                Height: =72
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =8
+                RadiusBottomRight: =8
+                RadiusTopLeft: =8
+                RadiusTopRight: =8
+                Width: =72
+                X: =16
+                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                ZIndex: =1
+
+            Title3 As label:
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.Type
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - 173
+                X: =103
+                Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + Subtitle3.Size * 1.8)) / 2
+                ZIndex: =2
+
+            Subtitle3 As label:
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.Value
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Title3.Width
+                X: =Title3.X
+                Y: =Title3.Y + Title3.Height
+                ZIndex: =3
+
+            NextArrow3 As icon.ChevronRight:
+                AccessibleLabel: =Self.Tooltip
+                Height: =72
+                Icon: =Icon.Publish
+                OnSelect: |-
+                    =Navigate('Upload Attendance', ScreenTransition.Fade, { nameVal: ParseJSON(ThisItem.Value).name , emailVal: ParseJSON(ThisItem.Value).email, studIDVal: ParseJSON(ThisItem.Value).studentID });
+                PaddingBottom: =16
+                PaddingLeft: =16
+                PaddingRight: =16
+                PaddingTop: =16
+                Tooltip: ="View item details"
+                Width: =71
+                X: =514
+                Y: =22
+                ZIndex: =4
+
+            Separator3 As rectangle:
+                Height: =8
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - Self.Height
+                ZIndex: =5
+
+            Rectangle3 As rectangle:
+                Height: =Parent.TemplateHeight - Separator3.Height
+                OnSelect: =Select(Parent)
+                Visible: =ThisItem.IsSelected
+                Width: =4
+                ZIndex: =6
+
+        Label1 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =70
+            Size: =21
+            Text: ="QR Code Value"
+            Width: =598
+            X: =23
+            Y: =114
+            ZIndex: =15
+
+    Group7 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =17
+
+        TextCanvas1 As Text:
+            Align: ='TextCanvas.Align'.Center
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            Text: ="Home"
+            Width: =96
+            X: =30
+            Y: =1104
+            ZIndex: =1
+
+        TextCanvas1_1 As Text:
+            Align: ='TextCanvas.Align'.Center
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            Text: ="Scan"
+            Width: =96
+            X: =192
+            Y: =1104
+            ZIndex: =2
+
+        TextCanvas1_2 As Text:
+            Align: ='TextCanvas.Align'.Center
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            Text: ="View Data"
+            Width: =96
+            X: =351
+            Y: =1104
+            ZIndex: =3
+
+        TextCanvas1_3 As Text:
+            Align: ='TextCanvas.Align'.Center
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            Text: ="Manual Record"
+            Width: =128
+            X: =496
+            Y: =1104
+            ZIndex: =4
+
+        Icon4_4 As icon.Home:
+            Color: =RGBA(51, 51, 51, 1)
+            Height: =37
+            Icon: =Icon.Home
+            Width: =37
+            X: =60
+            Y: =1065
+            ZIndex: =5
+
+        Icon4_5 As icon.Home:
+            Color: =RGBA(51, 51, 51, 1)
+            Height: =37
+            Icon: =Icon.CameraAperture
+            Width: =37
+            X: =222
+            Y: =1065
+            ZIndex: =6
+
+        Icon4_6 As icon.Home:
+            Color: =RGBA(51, 51, 51, 1)
+            Height: =37
+            Icon: =Icon.Draw
+            Width: =37
+            X: =542
+            Y: =1065
+            ZIndex: =7
+
+        Icon4_7 As icon.Home:
+            Color: =RGBA(51, 51, 51, 1)
+            Height: =37
+            Icon: =Icon.Document
+            Width: =37
+            X: =381
+            Y: =1065
+            ZIndex: =8
+
+        "'nav-view_1' As button":
+            AutoDisableOnSelect: =false
+            BorderThickness: =0
+            Color: =Color.Transparent
+            DisabledBorderColor: =RGBA(255, 255, 255, 0)
+            DisabledColor: =RGBA(255, 255, 255, 0)
+            DisabledFill: =RGBA(244, 244, 244, 0)
+            Fill: =Color.Transparent
+            Height: =88
+            HoverBorderColor: =RGBA(255, 255, 255, 0)
+            HoverColor: =RGBA(255, 255, 255, 0)
+            HoverFill: =RGBA(255, 255, 255, 0)
+            PressedBorderColor: =RGBA(255, 255, 255, 0)
+            PressedColor: =RGBA(255, 255, 255, 0)
+            PressedFill: =RGBA(255, 255, 255, 0)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =0
+            Text: ="View"
+            Width: =159
+            X: =320
+            Y: =1048
+            ZIndex: =9
+
+        "'nav-edit_1' As button":
+            AutoDisableOnSelect: =false
+            BorderThickness: =0
+            Color: =Color.Transparent
+            DisabledBorderColor: =RGBA(255, 255, 255, 0)
+            DisabledColor: =RGBA(255, 255, 255, 0)
+            DisabledFill: =RGBA(244, 244, 244, 0)
+            Fill: =Color.Transparent
+            Height: =88
+            HoverBorderColor: =RGBA(255, 255, 255, 0)
+            HoverColor: =RGBA(255, 255, 255, 0)
+            HoverFill: =RGBA(255, 255, 255, 0)
+            OnSelect: =Navigate('Upload Attendance')
+            PressedBorderColor: =RGBA(255, 255, 255, 0)
+            PressedColor: =RGBA(255, 255, 255, 0)
+            PressedFill: =RGBA(255, 255, 255, 0)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =0
+            Text: ="Button"
+            Width: =159
+            X: =481
+            Y: =1048
+            ZIndex: =10
+
+        "'nav-home_1' As button":
+            AutoDisableOnSelect: =false
+            BorderThickness: =0
+            Color: =Color.Transparent
+            DisabledBorderColor: =RGBA(255, 255, 255, 0)
+            DisabledColor: =RGBA(255, 255, 255, 0)
+            DisabledFill: =RGBA(244, 244, 244, 0)
+            Fill: =Color.Transparent
+            Height: =88
+            HoverBorderColor: =RGBA(255, 255, 255, 0)
+            HoverColor: =RGBA(255, 255, 255, 0)
+            HoverFill: =RGBA(255, 255, 255, 0)
+            OnSelect: =Navigate(Home)
+            PressedBorderColor: =RGBA(255, 255, 255, 0)
+            PressedColor: =RGBA(255, 255, 255, 0)
+            PressedFill: =RGBA(255, 255, 255, 0)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =0
+            Text: ="Home"
+            Width: =159
+            Y: =1048
+            ZIndex: =11
+
+        "'nav-scan_1' As button":
+            AutoDisableOnSelect: =false
+            BorderThickness: =0
+            Color: =Color.Transparent
+            DisabledBorderColor: =RGBA(255, 255, 255, 0)
+            DisabledColor: =Color.Transparent
+            DisabledFill: =RGBA(244, 244, 244, 0)
+            Fill: =Color.Transparent
+            Height: =88
+            HoverBorderColor: =RGBA(255, 255, 255, 0)
+            HoverColor: =Color.Transparent
+            HoverFill: =RGBA(255, 255, 255, 0)
+            OnSelect: =Navigate('QR Code Scanner')
+            PressedBorderColor: =RGBA(255, 255, 255, 0)
+            PressedColor: =Color.Transparent
+            PressedFill: =RGBA(255, 255, 255, 0)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =0
+            Text: ="Scan"
+            Width: =159
+            X: =160
+            Y: =1048
+            ZIndex: =12
+
